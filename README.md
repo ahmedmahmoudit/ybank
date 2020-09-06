@@ -1,15 +1,40 @@
-# Test assignment
+# Ybank
 
-For the test assignment, we have a partly finished banking application (created only for test assignment purposes), where one account can send money to another.
-This application is far from perfect, so we need you to fix and finish it by paying attention to these factors:
- * **Security** - we do not want to be hacked
- * **Best practices** - code should be clean and easy to maintain
- * **Documentation** - provide information on how to set up the project
- * **Tests** - test the parts that you feel necessary to
- * **Logic** - bank should not allow overspending your balance
+banking application, where one account can send money to another.
 
-Authentication **IS NOT** in the scope of this assignment. Getting the transactions list with the request `GET /accounts/<id>/transactions` is not a security hole.
+### Installation
 
-Use this repository as your starting point but **DO NOT** fork it. Create a public repository on GitHub for your application source code, push it and send a link to jobs@mailerlite.com.
+Clone this repo.
 
-Code quality in this repository **DOES NOT** represent code quality in MailerLite.
+```sh
+git clone https://github.com:ahmedmahmoudit/ybank.git
+```
+
+**Setup API server**
+
+```sh
+$ cd ybank/api
+$ composer install
+$ cp .env.example .env
+$ php artisan key:generate
+```
+
+Configure your database connection in the *.env* file, and run the server.
+
+Then migrate and seed your tables.
+
+```sh
+$ php artisan migrate --seed
+$ php artisan serve
+```
+
+**Setup the front-end**
+
+```sh
+$ cd ybank/web
+$ yarn install && yarn dev
+```
+
+
+
+Open [http://localhost:3000/](http://localhost:3000) to start your application.

@@ -76,7 +76,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import axios from "axios";
 import Vue from "vue";
 
@@ -145,6 +145,11 @@ export default {
       var that = this;
 
       evt.preventDefault();
+
+      if(this.$route.params.id == this.payment.to){
+        alert('you can\'t send money to yourself!');
+        return false;
+      }
 
       axios.post(
         `http://localhost:8000/api/accounts/${
